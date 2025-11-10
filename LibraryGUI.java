@@ -1,4 +1,6 @@
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,7 +19,8 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
     JPanel homePageHeaderPanel, filterPanel;
     JLabel libraryTitleLabel, libraryIconLabel;
-    ImageIcon libraryIcon;
+    JButton goToListButton;
+    ImageIcon libraryIcon, goToListIcon;
 
 
     LibraryGUI(){ 
@@ -34,12 +37,23 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
         libraryTitleLabel = new JLabel("Library", SwingConstants.CENTER);
         libraryTitleLabel.setFont(new Font("MV Boli", Font.PLAIN, 75));
+
+        goToListIcon = new ImageIcon("goToListIcon.png");
+        goToListButton = new JButton("Go To List", goToListIcon);
+        goToListButton.setFocusable(false);
+        goToListButton.setBackground(Color.lightGray);
+        goToListButton.setBorder(BorderFactory.createLineBorder(Color.black, 3));
+        goToListButton.setPreferredSize(new Dimension(100,0));
+        goToListButton.setHorizontalTextPosition(JButton.CENTER);
+        goToListButton.setVerticalTextPosition(JButton.BOTTOM);
         
         homePageHeaderPanel = new JPanel(new BorderLayout());
         homePageHeaderPanel.setBackground(Color.lightGray);
         homePageHeaderPanel.setPreferredSize(new Dimension(1080,150));
+        homePageHeaderPanel.setBorder(BorderFactory.createEtchedBorder());
         homePageHeaderPanel.add(libraryIconLabel, BorderLayout.WEST);
         homePageHeaderPanel.add(libraryTitleLabel);
+        homePageHeaderPanel.add(goToListButton, BorderLayout.EAST);
 
 
         filterPanel = new JPanel();
