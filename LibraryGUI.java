@@ -36,7 +36,7 @@ public class LibraryGUI extends JFrame implements ActionListener {
         libraryIconLabel.setIcon(libraryIcon);
 
         libraryTitleLabel = new JLabel("Library", SwingConstants.CENTER);
-        libraryTitleLabel.setFont(new Font("MV Boli", Font.PLAIN, 75));
+        libraryTitleLabel.setFont(new Font("Wayfinding Sans Rg BoldItalic", Font.ITALIC, 75));
 
         goToListIcon = new ImageIcon("goToListIcon.png");
         goToListButton = new JButton("Go To List", goToListIcon);
@@ -50,7 +50,7 @@ public class LibraryGUI extends JFrame implements ActionListener {
         homePageHeaderPanel = new JPanel(new BorderLayout());
         homePageHeaderPanel.setBackground(Color.lightGray);
         homePageHeaderPanel.setPreferredSize(new Dimension(1080,150));
-        homePageHeaderPanel.setBorder(BorderFactory.createEtchedBorder());
+        homePageHeaderPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
         homePageHeaderPanel.add(libraryIconLabel, BorderLayout.WEST);
         homePageHeaderPanel.add(libraryTitleLabel);
         homePageHeaderPanel.add(goToListButton, BorderLayout.EAST);
