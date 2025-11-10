@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 
 public class LibraryGUI extends JFrame implements ActionListener { 
 
-    JPanel topPanel, leftPanel;
+    JPanel homePageHeaderPanel, filterPanel;
     JLabel libraryTitle;
     ImageIcon libraryIcon;
 
@@ -37,17 +37,17 @@ public class LibraryGUI extends JFrame implements ActionListener {
         libraryTitle.setFont(new Font("MV Boli", Font.PLAIN, 75));
         
         
-        topPanel = new JPanel(new BorderLayout());
-        topPanel.setBackground(Color.lightGray);
-        topPanel.setPreferredSize(new Dimension(1080,150));
-        topPanel.add(libraryTitle, BorderLayout.WEST);
+        homePageHeaderPanel = new JPanel(new BorderLayout());
+        homePageHeaderPanel.setBackground(Color.lightGray);
+        homePageHeaderPanel.setPreferredSize(new Dimension(1080,150));
+        homePageHeaderPanel.add(libraryTitle, BorderLayout.WEST);
 
 
-        leftPanel = new JPanel();
-        leftPanel.setBackground(Color.lightGray);
-        leftPanel.setPreferredSize(new Dimension(200,1080));
-        this.add(leftPanel, BorderLayout.WEST);
-        this.add(topPanel, BorderLayout.NORTH);
+        filterPanel = new JPanel();
+        filterPanel.setBackground(Color.lightGray);
+        filterPanel.setPreferredSize(new Dimension(200,1080));
+        this.add(filterPanel, BorderLayout.WEST);
+        this.add(homePageHeaderPanel, BorderLayout.NORTH);
 
 
 
