@@ -11,14 +11,12 @@ import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 
 
 
-public class LibraryGUI extends JFrame implements ActionListener{ 
+public class LibraryHomePageGUI extends JFrame implements ActionListener{ 
 
     JPanel homePagePanel, homePageHeaderPanel, filterPanel, booksPanel;
 
@@ -37,7 +35,7 @@ public class LibraryGUI extends JFrame implements ActionListener{
     ImageIcon libraryIcon, goToListIcon;
 
 
-    LibraryGUI(){ 
+    LibraryHomePageGUI(){ 
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1080,720);
@@ -57,6 +55,8 @@ public class LibraryGUI extends JFrame implements ActionListener{
                 goToListButton = new JButton("Go To List", goToListIcon);
                 goToListButton.setFocusable(false);
                 goToListButton.setBackground(Color.lightGray);
+                
+                goToListButton.addActionListener(e -> openListPage());
                 goToListButton.setBorder(BorderFactory.createLineBorder(Color.black, 3));
                 goToListButton.setPreferredSize(new Dimension(100,0));
                 goToListButton.setHorizontalTextPosition(JButton.CENTER);
@@ -135,29 +135,6 @@ public class LibraryGUI extends JFrame implements ActionListener{
                 filterPanel.add(fantasyCheckBox);
                 // ------------------- HOME PAGE FILTER --------------- // 
 
-                // ------------------- HOME PAGE BOOK CATALOUGE --------------- // 
-
-                // IDEA: USE A FOR LOOP TO GO THROUGH THE books ARRAY TO CREATE 
-                // A PANEl, JLABEL FOR EACH BOOK 
-                
-                /* booksPanel = new JPanel(new GridLayout(2,4,3,3));
-                booksPanel.setPreferredSize(new Dimension(850,1080));
-                booksPanel.setBackground(Color.lightGray);
-
-                JPanel book1Panel = new JPanel();
-                book1Panel.setBorder(BorderFactory.createEtchedBorder());
-                book1Panel.setSize(100, 100);
-                book1Panel.setBackground(Color.red);
-                LibraryBook test = new LibraryBook();
-                JLabel book1Title = new JLabel(test.test());
-                book1Panel.add(book1Title);
-
-
-                booksPanel.add(book1Panel); */ 
-                
-                // ------------------- HOME PAGE BOOK CATALOUGE --------------- // 
-
-
         homePagePanel = new JPanel(new BorderLayout(100, 100));
         homePagePanel.add(homePageHeaderPanel, BorderLayout.NORTH);
         homePagePanel.add(filterPanel, BorderLayout.WEST);
@@ -165,23 +142,19 @@ public class LibraryGUI extends JFrame implements ActionListener{
 
         // ----------------------------------------- HOME PAGE ------------------------------------------ // 
 
-        
-
-
-
-
-
-
-
         this.add(homePagePanel, BorderLayout.CENTER);
         this.setVisible(true);
     }
 
     
-    
-    
-    
-    
+        private void openListPage() {
+        this.getContentPane().removeAll();
+        ListPageGUI listPagePanel = new ListPageGUI(this); 
+        this.add(listPagePanel, BorderLayout.CENTER);
+        this.revalidate();
+        this.repaint();
+        }
+
     
     
     @Override
@@ -191,9 +164,7 @@ public class LibraryGUI extends JFrame implements ActionListener{
 
     
     public static void main(String[] args) {
-        new LibraryGUI();
+        new LibraryHomePageGUI();
     }
     
-
-
 }
