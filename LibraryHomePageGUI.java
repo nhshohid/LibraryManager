@@ -49,7 +49,7 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
                 libraryIconLabel.setIcon(libraryIcon);
 
                 libraryTitleLabel = new JLabel("Library", SwingConstants.CENTER);
-                libraryTitleLabel.setFont(new Font("Wayfinding Sans Rg BoldItalic", Font.ITALIC, 75));
+                libraryTitleLabel.setFont(new Font("Wayfinding Sans Rg BoldItalic", Font.PLAIN, 75));
 
                 goToListIcon = new ImageIcon("goToListIcon.png");
                 goToListButton = new JButton("Go To List", goToListIcon);
@@ -147,6 +147,10 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
     }
 
     
+
+
+
+
         private void openListPage() {
         this.getContentPane().removeAll();
         ListPageGUI listPagePanel = new ListPageGUI(this); 
@@ -154,6 +158,8 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
         this.revalidate();
         this.repaint();
         }
+
+        
 
     
     

@@ -16,12 +16,15 @@ public class ListPageGUI extends JPanel implements ActionListener {
     JPanel listPagePanel, listPageHeaderPanel;
     JLabel listPageTitleLabel, libraryIconLabel;
     ImageIcon libraryIcon, goToHomeIcon;
-    JButton goToHomeButton;
+    JButton goToHomeButton, borrowBooksButton;
 
     private final LibraryHomePageGUI parentFrame; // keep reference to main frame
 
     ListPageGUI(LibraryHomePageGUI parentFrame){
         this.parentFrame = parentFrame;
+
+
+        setLayout(new BorderLayout());
 
          // ------------------- HOME PAGE HEADER --------------- // 
                 libraryIcon = new ImageIcon("LibraryIcon.png");
@@ -29,7 +32,7 @@ public class ListPageGUI extends JPanel implements ActionListener {
                 libraryIconLabel.setIcon(libraryIcon);
 
                 listPageTitleLabel = new JLabel("My List", SwingConstants.CENTER);
-                listPageTitleLabel.setFont(new Font("Wayfinding Sans Rg BoldItalic", Font.ITALIC, 75));
+                listPageTitleLabel.setFont(new Font("Wayfinding Sans Rg BoldItalic", Font.PLAIN, 75));
 
                 goToHomeIcon = new ImageIcon("goToHomeIcon.png");
                 goToHomeButton = new JButton("Go To Home", goToHomeIcon);
@@ -49,18 +52,29 @@ public class ListPageGUI extends JPanel implements ActionListener {
                 listPageHeaderPanel.add(libraryIconLabel, BorderLayout.WEST);
                 listPageHeaderPanel.add(listPageTitleLabel);
                 listPageHeaderPanel.add(goToHomeButton, BorderLayout.EAST);
+
+                borrowBooksButton = new JButton("Borrow Books");
+                borrowBooksButton.setBackground(Color.blue);
+                borrowBooksButton.setFocusable(false);
+                borrowBooksButton.setPreferredSize(new Dimension(100,100));
+                borrowBooksButton.setFont(new Font("Calibri", Font.PLAIN, 20));
+                borrowBooksButton.addActionListener(e -> Confirmation());
                 // -------------------- HOME PAGE HEADER ----------------------- // 
 
                 listPagePanel = new JPanel(new BorderLayout());
                 listPagePanel.add(listPageHeaderPanel, BorderLayout.NORTH);
 
                 this.add(listPagePanel, BorderLayout.CENTER);
-    }
+                this.add(borrowBooksButton, BorderLayout.SOUTH);
+                }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
-    }
+                private void Confirmation(){
+                    listPageTitleLabel.setText("Confirmation");
+                    borrowBooksButton.setText("Go To Home Page");
+                    borrowBooksButton.addActionListener(e -> openHomePage());
+                }
+    
+                 
 
     private void openHomePage() {
         parentFrame.getContentPane().removeAll();
@@ -68,4 +82,14 @@ public class ListPageGUI extends JPanel implements ActionListener {
         parentFrame.revalidate();
         parentFrame.repaint();
     }
+
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+    }
+
+
+    
 }
