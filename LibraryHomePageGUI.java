@@ -5,6 +5,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import java.awt.event.ActionListener;
@@ -25,13 +26,12 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
 
     } */ 
 
-    JLabel libraryTitleLabel, libraryIconLabel, filterSortLabel, availabilityLabel,
-    coverTypeLabel, genreLabel;
+    JLabel libraryTitleLabel, libraryIconLabel, filterSortLabel, itemTypeLabel, availabilityLabel,
+    qualityLabel, specficFilterLabel;
 
-    JCheckBox availabilityCheckBox, paperbackCheckBox, hardcoverCheckBox, horrorCheckBox,
-    mysteryCheckBox, fantasyCheckBox;
-
+    JCheckBox availabilityCheckBox, specificFilter1CheckBox, specificFilter2CheckBox;
     JButton goToListButton;
+    JRadioButton chooseBookItem, chooseMovieItem;
     ImageIcon libraryIcon, goToListIcon;
 
 
@@ -77,6 +77,13 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
                 filterSortLabel.setFont(new Font("MV Boli", Font.PLAIN, 25));
                 filterSortLabel.setBounds(15, 15, 200, 30);
 
+
+                itemTypeLabel = new JLabel("Choose an item:");
+                itemTypeLabel.setFont(new Font("MV Boli", Font.PLAIN, 18));
+                itemTypeLabel.setBounds(15,70,200,20);
+
+                chooseBookItem = new JRadioButton("Book");
+
                 availabilityLabel = new JLabel("Availability: ");
                 availabilityLabel.setFont(new Font("MV Boli", Font.PLAIN, 18));
                 availabilityLabel.setBounds(15,70,200,20);
@@ -86,53 +93,34 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
                 availabilityCheckBox.setBackground(Color.lightGray);
                 availabilityCheckBox.setBounds(15, 95, 150, 30);
 
-                coverTypeLabel = new JLabel("Cover Type: ");
-                coverTypeLabel.setFont(new Font("MV Boli", Font.PLAIN, 18));
-                coverTypeLabel.setBounds(15,145,200,20);
+                specficFilterLabel = new JLabel("Cover Type: ");
+                specficFilterLabel.setFont(new Font("MV Boli", Font.PLAIN, 18));
+                specficFilterLabel.setBounds(15,145,200,20);
 
-                paperbackCheckBox = new JCheckBox("Paperback");
-                paperbackCheckBox.setFocusable(false);
-                paperbackCheckBox.setBackground(Color.lightGray);
-                paperbackCheckBox.setBounds(15, 170, 150, 30); 
+                specificFilter1CheckBox = new JCheckBox("Paperback");
+                specificFilter1CheckBox.setFocusable(false);
+                specificFilter1CheckBox.setBackground(Color.lightGray);
+                specificFilter1CheckBox.setBounds(15, 170, 150, 30); 
 
-                hardcoverCheckBox = new JCheckBox("Hardcover");
-                hardcoverCheckBox.setFocusable(false);
-                hardcoverCheckBox.setBackground(Color.lightGray);
-                hardcoverCheckBox.setBounds(15, 200, 150, 30); 
+                specificFilter2CheckBox = new JCheckBox("Hardcover");
+                specificFilter2CheckBox.setFocusable(false);
+                specificFilter2CheckBox.setBackground(Color.lightGray);
+                specificFilter2CheckBox.setBounds(15, 200, 150, 30); 
 
-                genreLabel = new JLabel("Genre: ");
-                genreLabel.setFont(new Font("MV Boli", Font.PLAIN, 20));
-                genreLabel.setBounds(15,250,200,20);
-
-                horrorCheckBox = new JCheckBox("Horror");
-                horrorCheckBox.setFocusable(false);
-                horrorCheckBox.setBackground(Color.lightGray);
-                horrorCheckBox.setBounds(15, 275, 150, 30); 
-
-                mysteryCheckBox = new JCheckBox("Mystery");
-                mysteryCheckBox.setFocusable(false);
-                mysteryCheckBox.setBackground(Color.lightGray);
-                mysteryCheckBox.setBounds(15, 305, 150, 30); 
-
-                fantasyCheckBox = new JCheckBox("Fantasy");
-                fantasyCheckBox.setFocusable(false);
-                fantasyCheckBox.setBackground(Color.lightGray);
-                fantasyCheckBox.setBounds(15, 335, 150, 30); 
+                
 
                 filterPanel = new JPanel(null);
                 filterPanel.setBackground(Color.lightGray);
                 filterPanel.setPreferredSize(new Dimension(200,1080));
                 filterPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
                 filterPanel.add(filterSortLabel);
+                filterPanel.add(itemTypeLabel);
                 filterPanel.add(availabilityLabel);
                 filterPanel.add(availabilityCheckBox);
-                filterPanel.add(coverTypeLabel);
-                filterPanel.add(paperbackCheckBox);
-                filterPanel.add(hardcoverCheckBox);
-                filterPanel.add(genreLabel);
-                filterPanel.add(horrorCheckBox);
-                filterPanel.add(mysteryCheckBox);
-                filterPanel.add(fantasyCheckBox);
+                filterPanel.add(specficFilterLabel);
+                filterPanel.add(specificFilter1CheckBox);
+                filterPanel.add(specificFilter2CheckBox);
+    
                 // ------------------- HOME PAGE FILTER --------------- // 
 
         homePagePanel = new JPanel(new BorderLayout(100, 100));
