@@ -1,4 +1,5 @@
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -21,17 +22,13 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
 
     JPanel homePagePanel, homePageHeaderPanel, filterPanel, booksPanel;
 
-    /*  for(int i = 0; i<books.length; i++ ){
-        books[i].panel = new JPanel();
-
-    } */ 
-
     JLabel libraryTitleLabel, libraryIconLabel, filterSortLabel, itemTypeLabel, availabilityLabel,
     qualityLabel, specficFilterLabel;
 
     JCheckBox availabilityCheckBox, specificFilter1CheckBox, specificFilter2CheckBox;
     JButton goToListButton;
     JRadioButton chooseBookItem, chooseMovieItem;
+    ButtonGroup itemButtonGroup;
     ImageIcon libraryIcon, goToListIcon;
 
 
@@ -69,8 +66,6 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
                 homePageHeaderPanel.add(libraryIconLabel, BorderLayout.WEST);
                 homePageHeaderPanel.add(libraryTitleLabel);
                 homePageHeaderPanel.add(goToListButton, BorderLayout.EAST);
-                // -------------------- HOME PAGE HEADER ----------------------- // 
-
 
                 // ------------------- HOME PAGE FILTER --------------- // 
                 filterSortLabel = new JLabel("Sort By: ");
@@ -83,31 +78,65 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
                 itemTypeLabel.setBounds(15,70,200,20);
 
                 chooseBookItem = new JRadioButton("Book");
+                chooseBookItem.setFocusable(false);
+                chooseBookItem.setBackground(Color.lightGray);
+                chooseBookItem.setBounds(15, 95, 150, 30);
+                chooseBookItem.addActionListener(e -> {
+                    displayBookFilters();
+                    // updateDisplay();
+                    } );
+
+                chooseMovieItem = new JRadioButton("Movie");
+                chooseMovieItem.setFocusable(false);
+                chooseMovieItem.setBackground(Color.lightGray);
+                chooseMovieItem.setBounds(15, 125, 150, 30);
+                chooseMovieItem.addActionListener(e -> {
+                    displayMovieFilters();
+                    // updateDisplay();
+                });
+
+            
+
+                itemButtonGroup = new ButtonGroup();
+                chooseBookItem.setSelected(true);
+                itemButtonGroup.add(chooseBookItem);
+                itemButtonGroup.add(chooseMovieItem);
 
                 availabilityLabel = new JLabel("Availability: ");
                 availabilityLabel.setFont(new Font("MV Boli", Font.PLAIN, 18));
-                availabilityLabel.setBounds(15,70,200,20);
+                availabilityLabel.setBounds(15,170,200,20);
                 
                 availabilityCheckBox = new JCheckBox("In Stock");
                 availabilityCheckBox.setFocusable(false);
                 availabilityCheckBox.setBackground(Color.lightGray);
-                availabilityCheckBox.setBounds(15, 95, 150, 30);
+                availabilityCheckBox.setBounds(15, 195, 150, 30);
 
                 specficFilterLabel = new JLabel("Cover Type: ");
                 specficFilterLabel.setFont(new Font("MV Boli", Font.PLAIN, 18));
-                specficFilterLabel.setBounds(15,145,200,20);
+                specficFilterLabel.setBounds(15,240,200,20);
 
                 specificFilter1CheckBox = new JCheckBox("Paperback");
                 specificFilter1CheckBox.setFocusable(false);
                 specificFilter1CheckBox.setBackground(Color.lightGray);
-                specificFilter1CheckBox.setBounds(15, 170, 150, 30); 
+                specificFilter1CheckBox.setBounds(15, 265, 150, 30); 
+                specificFilter1CheckBox.addActionListener(e -> {
+                    if (specificFilter1CheckBox.isSelected()) {
+                        specificFilter2CheckBox.setSelected(false);
+                    }
+                    // updateDisplay();
+                });
 
                 specificFilter2CheckBox = new JCheckBox("Hardcover");
                 specificFilter2CheckBox.setFocusable(false);
                 specificFilter2CheckBox.setBackground(Color.lightGray);
-                specificFilter2CheckBox.setBounds(15, 200, 150, 30); 
+                specificFilter2CheckBox.setBounds(15, 295, 150, 30); 
+                specificFilter2CheckBox.addActionListener(e -> {
+                    if (specificFilter2CheckBox.isSelected()) {
+                        specificFilter1CheckBox.setSelected(false);
+                    }
+                    // updateDisplay();
+                });
 
-                
 
                 filterPanel = new JPanel(null);
                 filterPanel.setBackground(Color.lightGray);
@@ -115,50 +144,51 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
                 filterPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
                 filterPanel.add(filterSortLabel);
                 filterPanel.add(itemTypeLabel);
+                filterPanel.add(chooseBookItem);
+                filterPanel.add(chooseMovieItem);
                 filterPanel.add(availabilityLabel);
                 filterPanel.add(availabilityCheckBox);
                 filterPanel.add(specficFilterLabel);
                 filterPanel.add(specificFilter1CheckBox);
                 filterPanel.add(specificFilter2CheckBox);
     
-                // ------------------- HOME PAGE FILTER --------------- // 
-
         homePagePanel = new JPanel(new BorderLayout(100, 100));
         homePagePanel.add(homePageHeaderPanel, BorderLayout.NORTH);
         homePagePanel.add(filterPanel, BorderLayout.WEST);
-         // homePagePanel.add(booksPanel, BorderLayout.CENTER);
-
-        // ----------------------------------------- HOME PAGE ------------------------------------------ // 
 
         this.add(homePagePanel, BorderLayout.CENTER);
         this.setVisible(true);
     }
 
-    
-
-
-
-
-        private void openListPage() {
+    private void openListPage() {
         this.getContentPane().removeAll();
         ListPageGUI listPagePanel = new ListPageGUI(this); 
         this.add(listPagePanel, BorderLayout.CENTER);
         this.revalidate();
         this.repaint();
-        }
+    }
 
-        
+    private void displayBookFilters(){
+        specificFilter1CheckBox.setSelected(false);
+        specificFilter2CheckBox.setSelected(false);
+        specficFilterLabel.setText("Covertype: ");
+        specificFilter1CheckBox.setText("Paperback");
+        specificFilter2CheckBox.setText("Hardcover");
+    }
 
-    
-    
-    @Override
-    public void actionPerformed(ActionEvent e) {
+    private void displayMovieFilters(){
+        specificFilter1CheckBox.setSelected(false);
+        specificFilter2CheckBox.setSelected(false);
+        specficFilterLabel.setText("Movie Quality: ");
+        specificFilter1CheckBox.setText("1080p");
+        specificFilter2CheckBox.setText("4k");
         
     }
 
-    
+    @Override
+    public void actionPerformed(ActionEvent e) {}
+
     public static void main(String[] args) {
         new LibraryHomePageGUI();
     }
-    
 }
