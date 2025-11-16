@@ -23,4 +23,10 @@ public class LibraryMovie extends LibraryItem{
     public String displayItemInfo() {
         return "Title: " + getTitle() + "\nAuthor: " + getAuthor() + "\nQuality: " + getQuality() + "\nAvailibility: " + getAvailability();
     }
+
+
+    public void borrowMovie(){
+        availability = false;
+    }
+    
 }
