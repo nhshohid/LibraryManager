@@ -3,8 +3,8 @@ import javax.swing.ImageIcon;
 public abstract class LibraryItem {
     
     private final ImageIcon coverImage;
-    String title;
-    String author;
+    private final String title;
+    private final String author;
 
     public LibraryItem(ImageIcon coverImage, String title, String author){
         this.coverImage = coverImage;
