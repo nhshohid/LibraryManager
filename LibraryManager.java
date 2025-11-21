@@ -1,44 +1,37 @@
+import java.util.ArrayList;
+
 public class LibraryManager {
 
-    LibraryBook[] books =
-    {
-        new LibraryBook(),
-        new LibraryBook(),
-        new LibraryBook(),
-        new LibraryBook()
-    } ;
+    ArrayList<LibraryBook> books = new ArrayList<LibraryBook>() {{
+        add(new LibraryBook());
+        add(new LibraryBook());
+        add(new LibraryBook());
+        add(new LibraryBook());
+        }};
 
-     LibraryMovie[] movies =
-        {
-            new LibraryMovie(),
-            new LibraryMovie(),
-            new LibraryMovie(),
-            new LibraryMovie()
-        } ;
+    ArrayList<LibraryMovie> movies = new ArrayList<LibraryMovie>() {{
+        add(new LibraryMovie());
+        add(new LibraryMovie());
+        add(new LibraryMovie());
+        add(new LibraryMovie());
+    }};
 
-    LibraryBook[] availableBooks = new LibraryBook[4];
-    LibraryBook[] paperbackBooks = new LibraryBook[4];
-    LibraryBook[] paperbackAvailableBooks = new LibraryBook[4];
-    LibraryBook[] hardcoverBooks = new LibraryBook[4];
-    LibraryBook[] hardcoverAvailableBooks = new LibraryBook[4];
 
-    LibraryMovie[] availableMovies = new LibraryMovie[4];
-    LibraryMovie[] movies1080p = new LibraryMovie[4];
-    LibraryMovie[] movies1080pAvailable = new LibraryMovie[4];
-    LibraryMovie[] movies4k = new LibraryMovie[4];
-    LibraryMovie[] movies4kAvailable = new LibraryMovie[4];
+    ArrayList<LibraryBook> availableBooks = new ArrayList<>();
+    ArrayList<LibraryBook> paperbackBooks = new ArrayList<>();
+    ArrayList<LibraryBook> paperbackAvailableBooks = new ArrayList<>();
+    ArrayList<LibraryBook> hardcoverBooks = new ArrayList<>();
+    ArrayList<LibraryBook> hardcoverAvailableBooks = new ArrayList<>();
 
-    LibraryItem[] listItems = new LibraryItem[4];
+    ArrayList<LibraryMovie> availableMovies = new ArrayList<>();
+    ArrayList<LibraryMovie> movies1080p = new ArrayList<>();
+    ArrayList<LibraryMovie> movies1080pAvailable = new ArrayList<>();
+    ArrayList<LibraryMovie> movies4k = new ArrayList<>();
+    ArrayList<LibraryMovie> movies4kAvailable = new ArrayList<>();
 
-    
+    ArrayList<LibraryItem> listItems = new ArrayList<>();
 
 
 
 
-
-
-
-
-
-    
 }
