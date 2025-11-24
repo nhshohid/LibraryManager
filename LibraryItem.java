@@ -12,6 +12,10 @@ public abstract class LibraryItem {
         this.author = author;
     }
 
+    public ImageIcon getCoverImage(){
+        return coverImage;
+    }
+
     public String getTitle(){
         return title;
     }
@@ -21,8 +25,9 @@ public abstract class LibraryItem {
     }
 
     public String displayItemInfo(){
-        return "Title: " + getTitle() + "\nAuthor: " + getAuthor();
+        return "Title: " + getTitle() + "\nAuthor: " + getAuthor(); 
     }
 
 
 }
+

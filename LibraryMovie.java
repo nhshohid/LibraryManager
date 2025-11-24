@@ -21,7 +21,7 @@ public class LibraryMovie extends LibraryItem{
 
     @Override
     public String displayItemInfo() {
-        return "Title: " + getTitle() + "\nAuthor: " + getAuthor() + "\nQuality: " + getQuality() + "\nAvailibility: " + getAvailability();
+        return "Title: " + getTitle() + "\nDirector: " + getAuthor() + "\nQuality: " + getQuality() + "\nAvailable: " + getAvailability();
     }
 
 
