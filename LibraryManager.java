@@ -58,6 +58,34 @@ public class LibraryManager {
     ArrayList<LibraryItem> listItems = new ArrayList<>();
     int listCount;
 
+     public void filterBooks() {
+        availableBooks.clear();
 
+        for(LibraryBook book : books) {
+            if(book.getStock > 0){
+                availableBooks.add(books)
+            }
+            if(books.getCoverType().equals("paperbackBooks")){
+                paperbackBooks.add(books)
+            }
+                else if(books.getCoverType().equals("HardcoverBooks")
+                    HardcoverBooks.add(books)
+                
+        }
+
+    public void filterMovies() {
+        availableMovies.clear();
+
+        for(LibraryMovie movie : movies) {
+             if (movie.getStock > 0 {
+                 availableMovies.add(movie);
+        }
+         if (movie.getResolution().equals("1080p")) {
+            movies1080p.add(movies)
+         }
+         
+         else if (movie.getResolution().equals("4K")){
+            movies4k.add(movies)
+         }
 
 }
