@@ -19,7 +19,7 @@ public class LibraryBook extends LibraryItem{
     @Override
     public String displayItemInfo() {
         return  "Title: " + getTitle() + 
-                "\nDirector: " + getAuthor() + 
+                "\nAuthor: " + getAuthor() + 
                 "\nCovertype: " + getCoverType() + 
                 "\n" + (getIsInStock() ? "In Stock" : "Out of Stock");
     }
