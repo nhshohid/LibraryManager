@@ -63,30 +63,45 @@ public class LibraryManager {
         availableBooks.clear();
 
         for(LibraryBook book : books) {
-            if(book.getStock > 0){
-                availableBooks.add(books)
+
+            if(book.getIsInStock()){
+                availableBooks.add(book);
             }
-            if(books.getCoverType().equals("paperbackBooks")){
-                paperbackBooks.add(books)
+
+            if(book.getCoverType().equals("Paperback")){
+                paperbackBooks.add(book);
             }
-                else if(books.getCoverType().equals("HardcoverBooks")
-                    HardcoverBooks.add(books)
+            else if(book.getCoverType().equals("Hardcover")){
+                hardcoverBooks.add(book);
+            }
+
+
+            
+
+
                 
         }
+    }
+
+
 
     public void filterMovies() {
         availableMovies.clear();
 
         for(LibraryMovie movie : movies) {
-             if (movie.getStock > 0 {
+             if (movie.getIsInStock()) {
                  availableMovies.add(movie);
         }
-         if (movie.getResolution().equals("1080p")) {
-            movies1080p.add(movies)
+         if (movie.getQuality().equals("1080p")) {
+            movies1080p.add(movie);
          }
          
-         else if (movie.getResolution().equals("4K")){
-            movies4k.add(movies)
+         else if (movie.getQuality().equals("4K")){
+            movies4k.add(movie);
          }
 
+}
+
+
+    }
 }
