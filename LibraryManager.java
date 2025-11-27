@@ -23,32 +23,33 @@ public class LibraryManager {
 
    
     ArrayList<LibraryBook> books = new ArrayList<LibraryBook>() {{
-        add(new LibraryBook(hobbitCover, "The Hobbit", "J.R.R. Tolkien", "Hardcover", 0)); 
-        add(new LibraryBook(frankensteinCover, "Frankenstein",  "Mary Shelley", "Paperback", 5)); 
-        add(new LibraryBook(duneCover, "Dune", "Frank Herbert", "Hardcover", 2)); 
-        add(new LibraryBook(fahrenheitCover, "Fahrenheit 451", "Ray Bradbury", "Paperback", 0));
-        add(new LibraryBook(mobyDickCover, "Moby Dick", "Herman Melville", "Paperback", 1)); 
-        add(new LibraryBook(hungerGamesCover, "The Hunger Games", "Suzanne Collins", "Hardcover", 4)); 
+    add(new LibraryBook(hobbitCover, "The Hobbit", "J.R.R. Tolkien", false, "Hardcover"));
+    add(new LibraryBook(frankensteinCover, "Frankenstein", "Mary Shelley", true, "Paperback"));
+    add(new LibraryBook(duneCover, "Dune", "Frank Herbert", true, "Hardcover"));
+    add(new LibraryBook(fahrenheitCover, "Fahrenheit 451", "Ray Bradbury", false, "Paperback"));
+    add(new LibraryBook(mobyDickCover, "Moby Dick", "Herman Melville", true, "Paperback"));
+    add(new LibraryBook(hungerGamesCover, "The Hunger Games", "Suzanne Collins", true, "Hardcover"));
     }};
+
 
    
     ArrayList<LibraryMovie> movies = new ArrayList<LibraryMovie>() {{
-        add(new LibraryMovie(avengersCover, "Avengers: Endgame", "Anthony and Joe Russo", "1080p", true)); 
-        add(new LibraryMovie(inceptionCover, "Inception", "Christopher Nolan", "1080p", true));
-        add(new LibraryMovie(matrixCover, "The Matrix", "Lana and Lilly Wachowski", "4K", false));
-        add(new LibraryMovie(interstellarCover, "Interstellar", "Christopher Nolan", "4K", true));
-        add(new LibraryMovie(madMaxCover, "Mad Max: Fury Road", "George Miller", "4K", true)); 
-        add(new LibraryMovie(parasiteCover, "Parasite", "Bong Joon-ho", "1080p", true)); 
+    add(new LibraryMovie(avengersCover, "Avengers: Endgame", "Anthony and Joe Russo", true, "1080p"));
+    add(new LibraryMovie(inceptionCover, "Inception", "Christopher Nolan", true, "1080p"));
+    add(new LibraryMovie(matrixCover, "The Matrix", "Lana and Lilly Wachowski", false, "4K"));
+    add(new LibraryMovie(interstellarCover, "Interstellar", "Christopher Nolan", true, "4K"));
+    add(new LibraryMovie(madMaxCover, "Mad Max: Fury Road", "George Miller", true, "4K"));
+    add(new LibraryMovie(parasiteCover, "Parasite", "Bong Joon-ho", true, "1080p"));
     }};
 
-    // Available Books
+   
     ArrayList<LibraryBook> availableBooks = new ArrayList<>();
     ArrayList<LibraryBook> paperbackBooks = new ArrayList<>();
     ArrayList<LibraryBook> paperbackAvailableBooks = new ArrayList<>();
     ArrayList<LibraryBook> hardcoverBooks = new ArrayList<>();
     ArrayList<LibraryBook> hardcoverAvailableBooks = new ArrayList<>();
 
-    // Available Movies
+   
     ArrayList<LibraryMovie> availableMovies = new ArrayList<>();
     ArrayList<LibraryMovie> movies1080p = new ArrayList<>();
     ArrayList<LibraryMovie> movies1080pAvailable = new ArrayList<>();
