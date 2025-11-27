@@ -394,7 +394,7 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
                         if (manager.listItems.contains(movie)) {
                             javax.swing.JOptionPane.showMessageDialog(
                                 null,
-                                "This movie is already in your list!",
+                                "Three items have already been added to your list or may have already been checked out!",
                                 "Already Added",
                                 javax.swing.JOptionPane.WARNING_MESSAGE
                             );

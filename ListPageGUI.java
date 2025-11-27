@@ -79,13 +79,22 @@ public class ListPageGUI extends JPanel implements ActionListener {
                
                
 
-                borrowBooksButton = new JButton("Borrow Books");
+                borrowBooksButton = new JButton("Borrow Items");
                 borrowBooksButton.setBackground(Color.blue);
                 borrowBooksButton.setFocusable(false);
                 borrowBooksButton.setPreferredSize(new Dimension(100,100));
                 borrowBooksButton.setFont(new Font("Calibri", Font.PLAIN, 20));
                 borrowBooksButton.addActionListener(e -> {
-                Iterator<LibraryItem> iterator = manager.listItems.iterator();
+                    if(manager.listItems.isEmpty()){
+                        JOptionPane.showMessageDialog(
+                        null, 
+                        "No Items in List",
+                        "No Items", 
+                        JOptionPane.PLAIN_MESSAGE
+                    );
+                    
+                    }
+                    else{Iterator<LibraryItem> iterator = manager.listItems.iterator();
                     while (iterator.hasNext()) {
                         LibraryItem item = iterator.next();
                         if (item instanceof LibraryBook) {
@@ -112,7 +121,7 @@ public class ListPageGUI extends JPanel implements ActionListener {
                     parentFrame.updateDisplay();
                     openHomePage();
                     
-
+                }
                 });
                 // -------------------- HOME PAGE HEADER ----------------------- // 
 
