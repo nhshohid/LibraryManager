@@ -34,7 +34,7 @@ public class LibraryManager {
 
    
     ArrayList<LibraryMovie> movies = new ArrayList<LibraryMovie>() {{
-    add(new LibraryMovie(avengersCover, "Avengers: Endgame", "Anthony and Joe Russo", true, "1080p"));
+    add(new LibraryMovie(avengersCover, "Avengers", "Anthony and Joe Russo", true, "1080p"));
     add(new LibraryMovie(inceptionCover, "Inception", "Christopher Nolan", true, "1080p"));
     add(new LibraryMovie(matrixCover, "The Matrix", "Lana and Lilly Wachowski", false, "4K"));
     add(new LibraryMovie(interstellarCover, "Interstellar", "Christopher Nolan", true, "4K"));
@@ -61,6 +61,10 @@ public class LibraryManager {
 
      public void filterBooks() {
         availableBooks.clear();
+        paperbackBooks.clear();
+        paperbackAvailableBooks.clear();
+        hardcoverBooks.clear();
+        hardcoverAvailableBooks.clear();
 
         for(LibraryBook book : books) {
 
@@ -75,9 +79,12 @@ public class LibraryManager {
                 hardcoverBooks.add(book);
             }
 
-
-            
-
+            if(book.getIsInStock() && book.getCoverType().equals("Paperback")){
+                paperbackAvailableBooks.add(book);
+            }
+            else if(book.getIsInStock() && book.getCoverType().equals("Hardcover")){
+                hardcoverAvailableBooks.add(book);
+            }
 
                 
         }
@@ -85,23 +92,36 @@ public class LibraryManager {
 
 
 
-    public void filterMovies() {
-        availableMovies.clear();
+        public void filterMovies() {
+            availableMovies.clear();
+            movies4k.clear();
+            movies1080p.clear();
+            movies4kAvailable.clear();
+            movies1080pAvailable.clear();
 
-        for(LibraryMovie movie : movies) {
-             if (movie.getIsInStock()) {
-                 availableMovies.add(movie);
+            for(LibraryMovie movie : movies) {
+                
+                if (movie.getIsInStock()) {
+                    availableMovies.add(movie);
+                }
+
+                if (movie.getQuality().equals("1080p")) {
+                    movies1080p.add(movie);
+                }
+                else if (movie.getQuality().equals("4K")){
+                    movies4k.add(movie);
+                }
+
+                if(movie.getIsInStock() && movie.getQuality().equals("1080p")){
+                    movies1080pAvailable.add(movie);
+                }
+                else if(movie.getIsInStock() && movie.getQuality().equals("4K")){
+                    movies4kAvailable.add(movie);
+                }
+
+
+            }
+
+
         }
-         if (movie.getQuality().equals("1080p")) {
-            movies1080p.add(movie);
-         }
-         
-         else if (movie.getQuality().equals("4K")){
-            movies4k.add(movie);
-         }
-
-}
-
-
-    }
 }
