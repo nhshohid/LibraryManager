@@ -431,8 +431,7 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
             LibraryManager manager = new LibraryManager();
             manager.filterBooks();
             manager.filterMovies();
-            
             new LibraryHomePageGUI(manager);
-            
         }
+
 }

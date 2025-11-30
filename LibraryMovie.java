@@ -5,7 +5,9 @@ public class LibraryMovie extends LibraryItem{
     private final String quality;
     
 
-    public LibraryMovie(ImageIcon coverImage, String title, String author, boolean isInStock, String quality){
+    public LibraryMovie(ImageIcon coverImage, String title, String author, 
+        boolean isInStock, String quality){
+
         super(coverImage, title, author, isInStock);
         this.quality = quality;
         
@@ -24,7 +26,18 @@ public class LibraryMovie extends LibraryItem{
                 "\n" + (getIsInStock() ? "In Stock" : "Out of Stock");
     }
 
-
-    
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
