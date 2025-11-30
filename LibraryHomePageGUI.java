@@ -380,7 +380,7 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
                         if (manager.listItems.contains(movie)) {
                             javax.swing.JOptionPane.showMessageDialog(
                                 null,
-                                "Three items have already been added to your list or may have already been checked out!",
+                                "This movie is already in your list!",
                                 "Already Added",
                                 javax.swing.JOptionPane.WARNING_MESSAGE
                             );
@@ -389,7 +389,7 @@ public class LibraryHomePageGUI extends JFrame implements ActionListener{
                         if (manager.listCount >= 3) {
                         javax.swing.JOptionPane.showMessageDialog(
                                 null,
-                                "Three items have already been added!",
+                                "Three items have already been added to your list or may have already been checked out!",
                                 "Limit Reached",
                                 javax.swing.JOptionPane.WARNING_MESSAGE
                         );
